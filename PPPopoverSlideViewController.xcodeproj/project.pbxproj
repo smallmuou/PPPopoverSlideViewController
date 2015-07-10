@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88EF8B9C26935E38B5477212 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B85E22DF286CC8BD6F27F1 /* libPods.a */; };
+		E4FEB2E91B4F723900D4743F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB2E81B4F723900D4743F /* main.m */; };
+		E4FEB2EC1B4F723900D4743F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB2EB1B4F723900D4743F /* AppDelegate.m */; };
+		E4FEB2EF1B4F723900D4743F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB2EE1B4F723900D4743F /* ViewController.m */; };
+		E4FEB2F21B4F723900D4743F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB2F01B4F723900D4743F /* Main.storyboard */; };
+		E4FEB2F41B4F723900D4743F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB2F31B4F723900D4743F /* Images.xcassets */; };
+		E4FEB2F71B4F723900D4743F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB2F51B4F723900D4743F /* LaunchScreen.xib */; };
+		E4FEB3031B4F723900D4743F /* PPPopoverSlideViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB3021B4F723900D4743F /* PPPopoverSlideViewControllerTests.m */; };
+		E4FEB30F1B4F727400D4743F /* PPPopoverSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB30E1B4F727400D4743F /* PPPopoverSlideViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4FEB2FD1B4F723900D4743F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4FEB2DB1B4F723900D4743F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4FEB2E21B4F723900D4743F;
+			remoteInfo = PPPopoverSlideViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B2B85E22DF286CC8BD6F27F1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D61F137F0079E244A7A6DBD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D7227D094D2B907AB8311861 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E4FEB2E31B4F723900D4743F /* PPPopoverSlideViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPPopoverSlideViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4FEB2E71B4F723900D4743F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4FEB2E81B4F723900D4743F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E4FEB2EA1B4F723900D4743F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E4FEB2EB1B4F723900D4743F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E4FEB2ED1B4F723900D4743F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E4FEB2EE1B4F723900D4743F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E4FEB2F11B4F723900D4743F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E4FEB2F31B4F723900D4743F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E4FEB2F61B4F723900D4743F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E4FEB2FC1B4F723900D4743F /* PPPopoverSlideViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPPopoverSlideViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4FEB3011B4F723900D4743F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4FEB3021B4F723900D4743F /* PPPopoverSlideViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPPopoverSlideViewControllerTests.m; sourceTree = "<group>"; };
+		E4FEB30D1B4F727400D4743F /* PPPopoverSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPopoverSlideViewController.h; sourceTree = "<group>"; };
+		E4FEB30E1B4F727400D4743F /* PPPopoverSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPopoverSlideViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4FEB2E01B4F723900D4743F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88EF8B9C26935E38B5477212 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4FEB2F91B4F723900D4743F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14E77DF1D7A535073D9A7B32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2B85E22DF286CC8BD6F27F1 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		603E03AC66AD6BC9DFE8CAE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D7227D094D2B907AB8311861 /* Pods.debug.xcconfig */,
+				D61F137F0079E244A7A6DBD6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E4FEB2DA1B4F723900D4743F = {
+			isa = PBXGroup;
+			children = (
+				E4FEB2E51B4F723900D4743F /* PPPopoverSlideViewController */,
+				E4FEB2FF1B4F723900D4743F /* PPPopoverSlideViewControllerTests */,
+				E4FEB2E41B4F723900D4743F /* Products */,
+				603E03AC66AD6BC9DFE8CAE5 /* Pods */,
+				14E77DF1D7A535073D9A7B32 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E4FEB2E41B4F723900D4743F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4FEB2E31B4F723900D4743F /* PPPopoverSlideViewController.app */,
+				E4FEB2FC1B4F723900D4743F /* PPPopoverSlideViewControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4FEB2E51B4F723900D4743F /* PPPopoverSlideViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E4FEB30C1B4F725F00D4743F /* Classes */,
+				E4FEB2EA1B4F723900D4743F /* AppDelegate.h */,
+				E4FEB2EB1B4F723900D4743F /* AppDelegate.m */,
+				E4FEB2ED1B4F723900D4743F /* ViewController.h */,
+				E4FEB2EE1B4F723900D4743F /* ViewController.m */,
+				E4FEB2F01B4F723900D4743F /* Main.storyboard */,
+				E4FEB2F31B4F723900D4743F /* Images.xcassets */,
+				E4FEB2F51B4F723900D4743F /* LaunchScreen.xib */,
+				E4FEB2E61B4F723900D4743F /* Supporting Files */,
+			);
+			path = PPPopoverSlideViewController;
+			sourceTree = "<group>";
+		};
+		E4FEB2E61B4F723900D4743F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4FEB2E71B4F723900D4743F /* Info.plist */,
+				E4FEB2E81B4F723900D4743F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4FEB2FF1B4F723900D4743F /* PPPopoverSlideViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4FEB3021B4F723900D4743F /* PPPopoverSlideViewControllerTests.m */,
+				E4FEB3001B4F723900D4743F /* Supporting Files */,
+			);
+			path = PPPopoverSlideViewControllerTests;
+			sourceTree = "<group>";
+		};
+		E4FEB3001B4F723900D4743F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4FEB3011B4F723900D4743F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4FEB30C1B4F725F00D4743F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E4FEB30D1B4F727400D4743F /* PPPopoverSlideViewController.h */,
+				E4FEB30E1B4F727400D4743F /* PPPopoverSlideViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4FEB2E21B4F723900D4743F /* PPPopoverSlideViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4FEB3061B4F723900D4743F /* Build configuration list for PBXNativeTarget "PPPopoverSlideViewController" */;
+			buildPhases = (
+				9B771F7ADCABF7D57C9BE513 /* Check Pods Manifest.lock */,
+				E4FEB2DF1B4F723900D4743F /* Sources */,
+				E4FEB2E01B4F723900D4743F /* Frameworks */,
+				E4FEB2E11B4F723900D4743F /* Resources */,
+				40D3E7326EA182B335572171 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PPPopoverSlideViewController;
+			productName = PPPopoverSlideViewController;
+			productReference = E4FEB2E31B4F723900D4743F /* PPPopoverSlideViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E4FEB2FB1B4F723900D4743F /* PPPopoverSlideViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4FEB3091B4F723900D4743F /* Build configuration list for PBXNativeTarget "PPPopoverSlideViewControllerTests" */;
+			buildPhases = (
+				E4FEB2F81B4F723900D4743F /* Sources */,
+				E4FEB2F91B4F723900D4743F /* Frameworks */,
+				E4FEB2FA1B4F723900D4743F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4FEB2FE1B4F723900D4743F /* PBXTargetDependency */,
+			);
+			name = PPPopoverSlideViewControllerTests;
+			productName = PPPopoverSlideViewControllerTests;
+			productReference = E4FEB2FC1B4F723900D4743F /* PPPopoverSlideViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4FEB2DB1B4F723900D4743F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = StarNet;
+				TargetAttributes = {
+					E4FEB2E21B4F723900D4743F = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					E4FEB2FB1B4F723900D4743F = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = E4FEB2E21B4F723900D4743F;
+					};
+				};
+			};
+			buildConfigurationList = E4FEB2DE1B4F723900D4743F /* Build configuration list for PBXProject "PPPopoverSlideViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E4FEB2DA1B4F723900D4743F;
+			productRefGroup = E4FEB2E41B4F723900D4743F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E4FEB2E21B4F723900D4743F /* PPPopoverSlideViewController */,
+				E4FEB2FB1B4F723900D4743F /* PPPopoverSlideViewControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E4FEB2E11B4F723900D4743F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4FEB2F21B4F723900D4743F /* Main.storyboard in Resources */,
+				E4FEB2F71B4F723900D4743F /* LaunchScreen.xib in Resources */,
+				E4FEB2F41B4F723900D4743F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4FEB2FA1B4F723900D4743F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40D3E7326EA182B335572171 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B771F7ADCABF7D57C9BE513 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4FEB2DF1B4F723900D4743F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4FEB30F1B4F727400D4743F /* PPPopoverSlideViewController.m in Sources */,
+				E4FEB2EF1B4F723900D4743F /* ViewController.m in Sources */,
+				E4FEB2EC1B4F723900D4743F /* AppDelegate.m in Sources */,
+				E4FEB2E91B4F723900D4743F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4FEB2F81B4F723900D4743F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4FEB3031B4F723900D4743F /* PPPopoverSlideViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4FEB2FE1B4F723900D4743F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4FEB2E21B4F723900D4743F /* PPPopoverSlideViewController */;
+			targetProxy = E4FEB2FD1B4F723900D4743F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E4FEB2F01B4F723900D4743F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4FEB2F11B4F723900D4743F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E4FEB2F51B4F723900D4743F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4FEB2F61B4F723900D4743F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E4FEB3041B4F723900D4743F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E4FEB3051B4F723900D4743F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E4FEB3071B4F723900D4743F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7227D094D2B907AB8311861 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PPPopoverSlideViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E4FEB3081B4F723900D4743F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D61F137F0079E244A7A6DBD6 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PPPopoverSlideViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E4FEB30A1B4F723900D4743F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PPPopoverSlideViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PPPopoverSlideViewController.app/PPPopoverSlideViewController";
+			};
+			name = Debug;
+		};
+		E4FEB30B1B4F723900D4743F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PPPopoverSlideViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PPPopoverSlideViewController.app/PPPopoverSlideViewController";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4FEB2DE1B4F723900D4743F /* Build configuration list for PBXProject "PPPopoverSlideViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4FEB3041B4F723900D4743F /* Debug */,
+				E4FEB3051B4F723900D4743F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4FEB3061B4F723900D4743F /* Build configuration list for PBXNativeTarget "PPPopoverSlideViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4FEB3071B4F723900D4743F /* Debug */,
+				E4FEB3081B4F723900D4743F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4FEB3091B4F723900D4743F /* Build configuration list for PBXNativeTarget "PPPopoverSlideViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4FEB30A1B4F723900D4743F /* Debug */,
+				E4FEB30B1B4F723900D4743F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4FEB2DB1B4F723900D4743F /* Project object */;
+}
