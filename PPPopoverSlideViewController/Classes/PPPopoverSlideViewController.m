@@ -14,7 +14,6 @@
     NSInteger               _dragCount;
     CGPoint                 _lastPoint;
     UIPanGestureRecognizer* _panGestureRecognizer;
-
 }
 
 @end
@@ -43,14 +42,14 @@
 - (id)initWithContentViewController:(UIViewController *)contentViewController menuViewController:(UIViewController *)menuViewController {
     self = [self init];
     if (self) {
-        self.contentViewController = contentViewController;
-        self.menuViewController = menuViewController;
+        _contentViewController = contentViewController;
+        _menuViewController = menuViewController;
     }
     return self;
 }
 
 - (void)setup {
-    _menuViewSize = 350;
+    _menuViewSize = 300;
     _style = PPMaskStyleBlur;
 }
 
@@ -62,12 +61,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //添加contentViewController
-    [self addChildViewController:_contentViewController];
-    _contentViewController.view.frame = self.view.bounds;
-    _contentViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    [self.view addSubview:_contentViewController.view];
-    [_contentViewController didMoveToParentViewController:self];
+    self.contentViewController = _contentViewController;
     
     _maskView = [[PPMaskView alloc] initWithFrame:self.view.bounds style:_style];
     _maskView.underlyingView = _contentViewController.view;
@@ -76,53 +70,71 @@
     
     [self.view addSubview:_maskView];
 
-    //添加menuViewController
-    CGRect menuFrame = CGRectZero;
-    UIViewAutoresizing autoresizingMask;
-    switch (_direction) {
-        case PPPopoverSlideViewControllerDirectionLeft:
-            menuFrame = CGRectMake(-self.menuViewSize, 0, self.menuViewSize, self.view.bounds.size.height);
-            autoresizingMask = UIViewAutoresizingFlexibleHeight;
-            break;
-        case PPPopoverSlideViewControllerDirectionTop:
-            menuFrame = CGRectMake(0, -self.menuViewSize, self.view.bounds.size.width, self.menuViewSize);
-            autoresizingMask = UIViewAutoresizingFlexibleWidth;
-            break;
-        case PPPopoverSlideViewControllerDirectionRight:
-            menuFrame = CGRectMake(self.view.bounds.size.width, 0, self.menuViewSize, self.view.bounds.size.height);
-            autoresizingMask = UIViewAutoresizingFlexibleHeight;
-            break;
-        case PPPopoverSlideViewControllerDirectionBottom:
-            menuFrame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.menuViewSize);
-            autoresizingMask = UIViewAutoresizingFlexibleWidth;
-            break;
-        default:
-            break;
+    UIViewController* viewController = _menuViewController;
+    _menuViewController = nil;
+    self.menuViewController = viewController;
+}
+
+- (void)layoutMenuView:(UIView* )view {
+    if (_menuViewController) {
+        view.frame = _menuViewController.view.frame;
+        view.autoresizingMask = _menuViewController.view.autoresizingMask;
+    } else {
+        CGRect menuFrame = CGRectZero;
+        UIViewAutoresizing autoresizingMask;
+        switch (_direction) {
+            case PPPopoverSlideViewControllerDirectionLeft:
+                menuFrame = CGRectMake(-self.menuViewSize, 0, self.menuViewSize, self.view.bounds.size.height);
+                autoresizingMask = UIViewAutoresizingFlexibleHeight;
+                break;
+            case PPPopoverSlideViewControllerDirectionTop:
+                menuFrame = CGRectMake(0, -self.menuViewSize, self.view.bounds.size.width, self.menuViewSize);
+                autoresizingMask = UIViewAutoresizingFlexibleWidth;
+                break;
+            case PPPopoverSlideViewControllerDirectionRight:
+                menuFrame = CGRectMake(self.view.bounds.size.width, 0, self.menuViewSize, self.view.bounds.size.height);
+                autoresizingMask = UIViewAutoresizingFlexibleHeight;
+                break;
+            case PPPopoverSlideViewControllerDirectionBottom:
+                menuFrame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.menuViewSize);
+                autoresizingMask = UIViewAutoresizingFlexibleWidth;
+                break;
+            default:
+                break;
+        }
+        view.frame = menuFrame;
+        NSLog(@"menuFrame=%f, %f", menuFrame.origin.x, menuFrame.size.width);
+        view.autoresizingMask = autoresizingMask;
     }
-    
-    [self addChildViewController:_menuViewController];
-    _menuViewController.view.frame = menuFrame;
-    _menuViewController.view.autoresizingMask = autoresizingMask;
-    [self.view addSubview:_menuViewController.view];
-    [_menuViewController didMoveToParentViewController:self];
 }
 
 - (void)setMenuViewController:(UIViewController *)menuViewController {
     [_menuViewController removeFromParentViewController];
     [_menuViewController.view removeFromSuperview];
     
+    if (menuViewController) {
+        [_menuViewController.view removeGestureRecognizer:_panGestureRecognizer];
+        _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureRecognizerAction:)];
+        [self layoutMenuView:menuViewController.view];
+        [self.view addSubview:menuViewController.view];
+        [self addChildViewController:menuViewController];
+        [menuViewController.view addGestureRecognizer:_panGestureRecognizer];
+        [menuViewController didMoveToParentViewController:self];
+    }
     _menuViewController = menuViewController;
-    [_menuViewController.view removeGestureRecognizer:_panGestureRecognizer];
-    _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureRecognizerAction:)];
-    [_menuViewController.view addGestureRecognizer:_panGestureRecognizer];;
 }
 
 - (void)setContentViewController:(UIViewController *)contentViewController {
     [_contentViewController removeFromParentViewController];
     [_contentViewController.view removeFromSuperview];
     
+    if (contentViewController) {
+        [self addChildViewController:contentViewController];
+        contentViewController.view.frame = self.view.bounds;
+        [self.view insertSubview:contentViewController.view atIndex:0];
+        [contentViewController didMoveToParentViewController:self];
+    }
     _contentViewController = contentViewController;
-    _maskView.underlyingView = contentViewController.view;
 }
 
 - (void)onPanGestureRecognizerAction:(UIPanGestureRecognizer* )gesture {

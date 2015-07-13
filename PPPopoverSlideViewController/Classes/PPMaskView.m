@@ -122,17 +122,19 @@
     switch (_style) {
         case PPMaskStyleBlur: {
             self.hidden = (maskValue == 0.0f);
-            if (!_snapshot) {
+            if (!_snapshot) { //首次需要等待
                 _snapshot = [UIImage imageForView:_underlyingView];
-            }
-            
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 UIImage* image = [_snapshot blurImageWithRadius:maskValue*kBlurRadiusBase iterations:kBlurIterations tintColor:[UIColor clearColor]];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [_blurImageView setImage:image];
+                [_blurImageView setImage:image];
+            } else {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    UIImage* image = [_snapshot blurImageWithRadius:maskValue*kBlurRadiusBase iterations:kBlurIterations tintColor:[UIColor clearColor]];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [_blurImageView setImage:image];
+                    });
                 });
-            });
+            }
             break;
         }
         case PPMaskStyleLight:
