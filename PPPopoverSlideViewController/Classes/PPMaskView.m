@@ -10,10 +10,23 @@
 #import "UIImage+PPMaskView.h"
 
 #define kBlurRadiusBase 20.0f   //半径基数
-#define kBlurIterations 3       //嵌套次数，越大越模糊
+#define kBlurIterations 3      //嵌套次数，越大越模糊
 
 @interface PPMaskView () {
-    UIImageView* _blurImageView;
+    UIImageView*            _blurImageView;
+    UITapGestureRecognizer* _tapGestureRecognizer;
+    UIPanGestureRecognizer* _panGestureRecognizer;
+    CGPoint                 _lastPoint;
+    UIImage*                _snapshot;
+    
+    id                      _delegate __weak;
+    
+    struct {
+        unsigned int didTap:1;
+        unsigned int maskViewDidBeganDrag:1;
+        unsigned int maskViewDidDraged:1;
+        unsigned int maskViewDidEndedDrag:1;
+    } _delegateFlags;
 }
 
 @end
@@ -30,8 +43,11 @@
                 _blurImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
                 [self addSubview:_blurImageView];
                 break;
-            case PPMaskStyleMask:
+            case PPMaskStyleBlack:
                 self.backgroundColor = [UIColor blackColor];
+                break;
+            case PPMaskStyleLight:
+                self.backgroundColor = [UIColor whiteColor];
                 break;
             case PPMaskStyleClear:
                 self.backgroundColor = [UIColor clearColor];
@@ -39,8 +55,61 @@
             default:
                 break;
         }
+        
+        self.maskValue = 0;
+        
+        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTabGestureRecognizerAction:)];
+        [self addGestureRecognizer:_tapGestureRecognizer];
+        
+        _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureRecognizerAction:)];
+        [self addGestureRecognizer:_panGestureRecognizer];
     }
     return self;
+}
+
+- (void)dealloc {
+    [self removeGestureRecognizer:_tapGestureRecognizer];
+    [self removeGestureRecognizer:_panGestureRecognizer];
+}
+
+- (void)onTabGestureRecognizerAction:(UITapGestureRecognizer* )gesture {
+    if (_delegateFlags.didTap) {
+        [self.delegate maskViewDidTap:self];
+    }
+}
+
+- (void)onPanGestureRecognizerAction:(UIPanGestureRecognizer* )gesture {
+    CGPoint point = [gesture locationInView:self];
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan:
+            if (_delegateFlags.maskViewDidBeganDrag) {
+                [self.delegate maskViewDidBeganDrag:self offset:CGPointMake(0, 0)];
+            }
+            break;
+        case UIGestureRecognizerStateChanged:
+            if (_delegateFlags.maskViewDidDraged) {
+                [self.delegate maskViewDidDraged:self offset:CGPointMake(point.x-_lastPoint.x, point.y-_lastPoint.y)];
+            }
+            break;
+        case UIGestureRecognizerStateEnded:
+            if (_delegateFlags.maskViewDidEndedDrag) {
+                [self.delegate maskViewDidEndedDrag:self offset:CGPointMake(point.x-_lastPoint.x, point.y-_lastPoint.y) velocity:[gesture velocityInView:self]];
+            }
+            break;
+        default:
+            break;
+    }
+    
+    _lastPoint = point;
+}
+
+- (void)setDelegate:(id<PPMaskViewDelegate>)delegate {
+    _delegate = delegate;
+    
+    _delegateFlags.didTap = [self.delegate respondsToSelector:@selector(maskViewDidTap:)]?1:0;
+    _delegateFlags.maskViewDidBeganDrag = [self.delegate respondsToSelector:@selector(maskViewDidBeganDrag:offset:)]?1:0;
+    _delegateFlags.maskViewDidDraged = [self.delegate respondsToSelector:@selector(maskViewDidDraged:offset:)]?1:0;
+    _delegateFlags.maskViewDidEndedDrag = [self.delegate respondsToSelector:@selector(maskViewDidEndedDrag:offset:velocity:)]?1:0;
 }
 
 - (void)setMaskValue:(CGFloat)maskValue {
@@ -48,10 +117,14 @@
     switch (_style) {
         case PPMaskStyleBlur:
             self.hidden = (maskValue == 0.0f);
-            [_blurImageView setImage:[[UIImage imageForView:_underlyingView] blurImageWithRadius:maskValue*kBlurRadiusBase iterations:kBlurIterations tintColor:[UIColor clearColor]]];
+            if (!_snapshot) {
+                _snapshot = [UIImage imageForView:_underlyingView];
+            }
+            [_blurImageView setImage:[_snapshot blurImageWithRadius:maskValue*kBlurRadiusBase iterations:kBlurIterations tintColor:[UIColor clearColor]]];
             break;
-        case PPMaskStyleMask:
-            self.alpha = maskValue;
+        case PPMaskStyleLight:
+        case PPMaskStyleBlack:
+            self.alpha = maskValue*0.5;
             break;
         case PPMaskStyleClear:
             break;

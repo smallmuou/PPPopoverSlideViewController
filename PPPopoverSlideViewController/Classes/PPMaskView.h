@@ -10,13 +10,29 @@
 
 typedef NS_ENUM(NSInteger, PPMaskStyle) {
     PPMaskStyleBlur,
-    PPMaskStyleMask,
+    PPMaskStyleLight,
+    PPMaskStyleBlack,
     PPMaskStyleClear,
 };
+
+@class PPMaskView;
+@protocol PPMaskViewDelegate <NSObject>
+
+@optional
+
+- (void)maskViewDidTap:(PPMaskView* )maskView;
+- (void)maskViewDidBeganDrag:(PPMaskView *)maskView offset:(CGPoint)offset;
+- (void)maskViewDidDraged:(PPMaskView *)maskView offset:(CGPoint)offset;
+- (void)maskViewDidEndedDrag:(PPMaskView *)maskView offset:(CGPoint)offset velocity:(CGPoint)velocity;
+
+
+@end
 
 @interface PPMaskView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame style:(PPMaskStyle)style;
+
+@property (nonatomic, weak) id <PPMaskViewDelegate> delegate;
 
 @property (nonatomic, readonly) PPMaskStyle style;
 

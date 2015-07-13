@@ -9,8 +9,12 @@
 #import "PPPopoverSlideViewController.h"
 #import "PPMaskView.h"
 
-@interface PPPopoverSlideViewController () {
-    PPMaskView* _maskView;
+@interface PPPopoverSlideViewController () <PPMaskViewDelegate> {
+    PPMaskView*             _maskView;
+    NSInteger               _dragCount;
+    CGPoint                 _lastPoint;
+    UIPanGestureRecognizer* _panGestureRecognizer;
+
 }
 
 @end
@@ -39,15 +43,15 @@
 - (id)initWithContentViewController:(UIViewController *)contentViewController menuViewController:(UIViewController *)menuViewController {
     self = [self init];
     if (self) {
-        _contentViewController = contentViewController;
-        _menuViewController = menuViewController;
+        self.contentViewController = contentViewController;
+        self.menuViewController = menuViewController;
     }
     return self;
 }
 
 - (void)setup {
-    _menuViewSize = 300;
-    _style = PPMaskStyleBlur;
+    _menuViewSize = 350;
+    _style = PPMaskStyleLight;
 }
 
 
@@ -67,9 +71,10 @@
     
     _maskView = [[PPMaskView alloc] initWithFrame:self.view.bounds style:_style];
     _maskView.underlyingView = _contentViewController.view;
+    _maskView.delegate = self;
     _maskView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    
     [self.view addSubview:_maskView];
-    _maskView.userInteractionEnabled = NO;
 
     //添加menuViewController
     CGRect menuFrame = CGRectZero;
@@ -102,6 +107,32 @@
     [_menuViewController didMoveToParentViewController:self];
 }
 
+- (void)setMenuViewController:(UIViewController *)menuViewController {
+    _menuViewController = menuViewController;
+    [_menuViewController.view removeGestureRecognizer:_panGestureRecognizer];
+    _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureRecognizerAction:)];
+    [_menuViewController.view addGestureRecognizer:_panGestureRecognizer];;
+}
+
+- (void)onPanGestureRecognizerAction:(UIPanGestureRecognizer* )gesture {
+    CGPoint point = [gesture locationInView:_maskView];
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan:
+            [self maskViewDidBeganDrag:_maskView offset:CGPointMake(0, 0)];
+            break;
+        case UIGestureRecognizerStateChanged:
+            [self maskViewDidDraged:_maskView offset:CGPointMake(point.x-_lastPoint.x, point.y-_lastPoint.y)];
+            break;
+        case UIGestureRecognizerStateEnded:
+            [self maskViewDidEndedDrag:_maskView offset:CGPointMake(point.x-_lastPoint.x, point.y-_lastPoint.y) velocity:[gesture velocityInView:_maskView]];
+            break;
+        default:
+            break;
+    }
+    
+    _lastPoint = point;
+}
+
 - (void)presentMenuViewController {
     [UIView animateWithDuration:0.25f animations:^{
         CGRect frame = _menuViewController.view.frame;
@@ -123,6 +154,63 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - PPMaskViewDelegate
+- (void)maskViewDidTap:(PPMaskView* )maskView {
+    [self hideMenuViewController];
+}
+
+- (void)maskViewDidBeganDrag:(PPMaskView *)maskView offset:(CGPoint)offset {
+    _dragCount = 0;
+    [self maskViewDidDraged:maskView offset:offset];
+}
+
+- (void)maskViewDidDraged:(PPMaskView *)maskView offset:(CGPoint)offset {
+    CGRect frame = _menuViewController.view.frame;
+    frame.origin.x += offset.x;
+    
+    if (frame.origin.x > 0) {
+        frame.origin.x = 0;
+    } else if (frame.origin.x < -_menuViewSize) {
+        frame.origin.x = -_menuViewSize;
+    }
+    
+    //防止更新过频繁，导致界面不流畅
+    if (_dragCount%2 == 0) {
+        _maskView.maskValue = (_menuViewSize - fabs(frame.origin.x))/_menuViewSize;
+    }
+    _menuViewController.view.frame = frame;
+    _dragCount++;
+}
+
+- (void)maskViewDidEndedDrag:(PPMaskView *)maskView offset:(CGPoint)offset velocity:(CGPoint)velocity {
+    CGFloat x = fabs(_menuViewController.view.frame.origin.x);
+    CGFloat maskValue;
+    
+    BOOL show;
+    if (velocity.x > 400) {
+        show = YES;
+    } else if (velocity.x < -400) {
+        show = NO;
+    } else {
+        show = (x - _menuViewSize/2) < 0;
+    }
+
+    if (!show) {
+        x = -_menuViewSize;
+        maskValue = 0.f;
+    } else {
+        x = 0.f;
+        maskValue = 1.f;
+    }
+    
+    [UIView animateWithDuration:0.25f animations:^{
+        CGRect frame = _menuViewController.view.frame;
+        frame.origin.x = x;
+        _maskView.maskValue = maskValue;
+        _menuViewController.view.frame = frame;
+    }];
 }
 
 @end
