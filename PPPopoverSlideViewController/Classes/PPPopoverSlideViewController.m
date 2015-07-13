@@ -145,6 +145,9 @@
 }
 
 - (void)presentMenuViewController {
+    //动态
+    _maskView.underlyingView = _contentViewController.view;
+    
     [UIView animateWithDuration:0.25f animations:^{
         CGRect frame = _menuViewController.view.frame;
         frame.origin.x = 0;
