@@ -47,6 +47,7 @@
     _maskValue = maskValue;
     switch (_style) {
         case PPMaskStyleBlur:
+            self.hidden = (maskValue == 0.0f);
             [_blurImageView setImage:[[UIImage imageForView:_underlyingView] blurImageWithRadius:maskValue*kBlurRadiusBase iterations:kBlurIterations tintColor:[UIColor clearColor]]];
             break;
         case PPMaskStyleMask:
