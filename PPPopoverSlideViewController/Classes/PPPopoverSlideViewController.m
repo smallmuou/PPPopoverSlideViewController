@@ -51,7 +51,7 @@
 
 - (void)setup {
     _menuViewSize = 350;
-    _style = PPMaskStyleLight;
+    _style = PPMaskStyleBlur;
 }
 
 
@@ -177,7 +177,7 @@
     }
     
     //防止更新过频繁，导致界面不流畅
-    if (_dragCount%2 == 0) {
+    if (_style != PPMaskStyleBlur || _dragCount%5 == 0) {
         _maskView.maskValue = (_menuViewSize - fabs(frame.origin.x))/_menuViewSize;
     }
     _menuViewController.view.frame = frame;

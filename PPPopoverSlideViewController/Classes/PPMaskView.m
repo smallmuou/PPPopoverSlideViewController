@@ -115,13 +115,21 @@
 - (void)setMaskValue:(CGFloat)maskValue {
     _maskValue = maskValue;
     switch (_style) {
-        case PPMaskStyleBlur:
+        case PPMaskStyleBlur: {
             self.hidden = (maskValue == 0.0f);
             if (!_snapshot) {
                 _snapshot = [UIImage imageForView:_underlyingView];
             }
-            [_blurImageView setImage:[_snapshot blurImageWithRadius:maskValue*kBlurRadiusBase iterations:kBlurIterations tintColor:[UIColor clearColor]]];
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                UIImage* image = [_snapshot blurImageWithRadius:maskValue*kBlurRadiusBase iterations:kBlurIterations tintColor:[UIColor clearColor]];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_blurImageView setImage:image];
+                });
+            });
             break;
+        }
         case PPMaskStyleLight:
         case PPMaskStyleBlack:
             self.alpha = maskValue*0.5;
