@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "PPPopoverSlideViewController.h"
+#import "MenuViewController.h"
+#import "ContentViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    MenuViewController* mvc = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:nil];
+    
+    ContentViewController* cvc = [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
+    UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    
+    PPPopoverSlideViewController* vc = [[PPPopoverSlideViewController alloc] initWithContentViewController:nvc menuViewController:mvc];
+    
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

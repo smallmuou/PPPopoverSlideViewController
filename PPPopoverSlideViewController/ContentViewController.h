@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ContentViewController.h
 //  PPPopoverSlideViewController
 //
 //  Created by StarNet on 7/10/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ContentViewController : UIViewController
 
 @end
-

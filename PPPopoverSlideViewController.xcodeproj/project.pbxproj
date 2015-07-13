@@ -8,14 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		88EF8B9C26935E38B5477212 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B85E22DF286CC8BD6F27F1 /* libPods.a */; };
+		E4C684581B5362B600F38709 /* PPMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C684571B5362B600F38709 /* PPMaskView.m */; };
+		E4C6845B1B5368F100F38709 /* UIImage+PPMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C6845A1B5368F100F38709 /* UIImage+PPMaskView.m */; };
+		E4C6845D1B53698500F38709 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C6845C1B53698500F38709 /* Accelerate.framework */; };
+		E4CC2A721B523D8F00431AD1 /* navigationbar_menu_icon_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC2A701B523D8F00431AD1 /* navigationbar_menu_icon_h@2x.png */; };
+		E4CC2A731B523D8F00431AD1 /* navigationbar_menu_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC2A711B523D8F00431AD1 /* navigationbar_menu_icon@2x.png */; };
+		E4CC2A781B52594600431AD1 /* IMG_0100.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E4CC2A771B52594600431AD1 /* IMG_0100.PNG */; };
 		E4FEB2E91B4F723900D4743F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB2E81B4F723900D4743F /* main.m */; };
 		E4FEB2EC1B4F723900D4743F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB2EB1B4F723900D4743F /* AppDelegate.m */; };
-		E4FEB2EF1B4F723900D4743F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB2EE1B4F723900D4743F /* ViewController.m */; };
-		E4FEB2F21B4F723900D4743F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB2F01B4F723900D4743F /* Main.storyboard */; };
 		E4FEB2F41B4F723900D4743F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB2F31B4F723900D4743F /* Images.xcassets */; };
 		E4FEB2F71B4F723900D4743F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB2F51B4F723900D4743F /* LaunchScreen.xib */; };
 		E4FEB3031B4F723900D4743F /* PPPopoverSlideViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB3021B4F723900D4743F /* PPPopoverSlideViewControllerTests.m */; };
 		E4FEB30F1B4F727400D4743F /* PPPopoverSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB30E1B4F727400D4743F /* PPPopoverSlideViewController.m */; };
+		E4FEB3131B4FA7CE00D4743F /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB3111B4FA7CE00D4743F /* ContentViewController.m */; };
+		E4FEB3141B4FA7CE00D4743F /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB3121B4FA7CE00D4743F /* ContentViewController.xib */; };
+		E4FEB3181B4FA7DB00D4743F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FEB3161B4FA7DB00D4743F /* MenuViewController.m */; };
+		E4FEB3191B4FA7DB00D4743F /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FEB3171B4FA7DB00D4743F /* MenuViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +40,19 @@
 		B2B85E22DF286CC8BD6F27F1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D61F137F0079E244A7A6DBD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D7227D094D2B907AB8311861 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E4C684561B5362B600F38709 /* PPMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMaskView.h; sourceTree = "<group>"; };
+		E4C684571B5362B600F38709 /* PPMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMaskView.m; sourceTree = "<group>"; };
+		E4C684591B5368F100F38709 /* UIImage+PPMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PPMaskView.h"; sourceTree = "<group>"; };
+		E4C6845A1B5368F100F38709 /* UIImage+PPMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PPMaskView.m"; sourceTree = "<group>"; };
+		E4C6845C1B53698500F38709 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		E4CC2A701B523D8F00431AD1 /* navigationbar_menu_icon_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_menu_icon_h@2x.png"; sourceTree = "<group>"; };
+		E4CC2A711B523D8F00431AD1 /* navigationbar_menu_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_menu_icon@2x.png"; sourceTree = "<group>"; };
+		E4CC2A771B52594600431AD1 /* IMG_0100.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0100.PNG; sourceTree = "<group>"; };
 		E4FEB2E31B4F723900D4743F /* PPPopoverSlideViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPPopoverSlideViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FEB2E71B4F723900D4743F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4FEB2E81B4F723900D4743F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4FEB2EA1B4F723900D4743F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E4FEB2EB1B4F723900D4743F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E4FEB2ED1B4F723900D4743F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E4FEB2EE1B4F723900D4743F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E4FEB2F11B4F723900D4743F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4FEB2F31B4F723900D4743F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E4FEB2F61B4F723900D4743F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E4FEB2FC1B4F723900D4743F /* PPPopoverSlideViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPPopoverSlideViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +60,12 @@
 		E4FEB3021B4F723900D4743F /* PPPopoverSlideViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPPopoverSlideViewControllerTests.m; sourceTree = "<group>"; };
 		E4FEB30D1B4F727400D4743F /* PPPopoverSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPopoverSlideViewController.h; sourceTree = "<group>"; };
 		E4FEB30E1B4F727400D4743F /* PPPopoverSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPopoverSlideViewController.m; sourceTree = "<group>"; };
+		E4FEB3101B4FA7CE00D4743F /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		E4FEB3111B4FA7CE00D4743F /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		E4FEB3121B4FA7CE00D4743F /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
+		E4FEB3151B4FA7DB00D4743F /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		E4FEB3161B4FA7DB00D4743F /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		E4FEB3171B4FA7DB00D4743F /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C6845D1B53698500F38709 /* Accelerate.framework in Frameworks */,
 				88EF8B9C26935E38B5477212 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +91,7 @@
 		14E77DF1D7A535073D9A7B32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4C6845C1B53698500F38709 /* Accelerate.framework */,
 				B2B85E22DF286CC8BD6F27F1 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -111,9 +132,15 @@
 				E4FEB30C1B4F725F00D4743F /* Classes */,
 				E4FEB2EA1B4F723900D4743F /* AppDelegate.h */,
 				E4FEB2EB1B4F723900D4743F /* AppDelegate.m */,
-				E4FEB2ED1B4F723900D4743F /* ViewController.h */,
-				E4FEB2EE1B4F723900D4743F /* ViewController.m */,
-				E4FEB2F01B4F723900D4743F /* Main.storyboard */,
+				E4CC2A701B523D8F00431AD1 /* navigationbar_menu_icon_h@2x.png */,
+				E4CC2A711B523D8F00431AD1 /* navigationbar_menu_icon@2x.png */,
+				E4FEB3151B4FA7DB00D4743F /* MenuViewController.h */,
+				E4FEB3161B4FA7DB00D4743F /* MenuViewController.m */,
+				E4CC2A771B52594600431AD1 /* IMG_0100.PNG */,
+				E4FEB3171B4FA7DB00D4743F /* MenuViewController.xib */,
+				E4FEB3101B4FA7CE00D4743F /* ContentViewController.h */,
+				E4FEB3111B4FA7CE00D4743F /* ContentViewController.m */,
+				E4FEB3121B4FA7CE00D4743F /* ContentViewController.xib */,
 				E4FEB2F31B4F723900D4743F /* Images.xcassets */,
 				E4FEB2F51B4F723900D4743F /* LaunchScreen.xib */,
 				E4FEB2E61B4F723900D4743F /* Supporting Files */,
@@ -152,6 +179,10 @@
 			children = (
 				E4FEB30D1B4F727400D4743F /* PPPopoverSlideViewController.h */,
 				E4FEB30E1B4F727400D4743F /* PPPopoverSlideViewController.m */,
+				E4C684561B5362B600F38709 /* PPMaskView.h */,
+				E4C684571B5362B600F38709 /* PPMaskView.m */,
+				E4C684591B5368F100F38709 /* UIImage+PPMaskView.h */,
+				E4C6845A1B5368F100F38709 /* UIImage+PPMaskView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -238,9 +269,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4FEB2F21B4F723900D4743F /* Main.storyboard in Resources */,
+				E4CC2A731B523D8F00431AD1 /* navigationbar_menu_icon@2x.png in Resources */,
 				E4FEB2F71B4F723900D4743F /* LaunchScreen.xib in Resources */,
 				E4FEB2F41B4F723900D4743F /* Images.xcassets in Resources */,
+				E4CC2A721B523D8F00431AD1 /* navigationbar_menu_icon_h@2x.png in Resources */,
+				E4CC2A781B52594600431AD1 /* IMG_0100.PNG in Resources */,
+				E4FEB3141B4FA7CE00D4743F /* ContentViewController.xib in Resources */,
+				E4FEB3191B4FA7DB00D4743F /* MenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,10 +326,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FEB3131B4FA7CE00D4743F /* ContentViewController.m in Sources */,
 				E4FEB30F1B4F727400D4743F /* PPPopoverSlideViewController.m in Sources */,
-				E4FEB2EF1B4F723900D4743F /* ViewController.m in Sources */,
+				E4C6845B1B5368F100F38709 /* UIImage+PPMaskView.m in Sources */,
 				E4FEB2EC1B4F723900D4743F /* AppDelegate.m in Sources */,
 				E4FEB2E91B4F723900D4743F /* main.m in Sources */,
+				E4C684581B5362B600F38709 /* PPMaskView.m in Sources */,
+				E4FEB3181B4FA7DB00D4743F /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,14 +355,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E4FEB2F01B4F723900D4743F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4FEB2F11B4F723900D4743F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E4FEB2F51B4F723900D4743F /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -424,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PPPopoverSlideViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -435,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PPPopoverSlideViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

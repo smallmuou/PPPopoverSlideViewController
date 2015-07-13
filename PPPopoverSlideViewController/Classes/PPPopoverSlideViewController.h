@@ -7,18 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PPMaskView.h"
 
 typedef NS_ENUM(NSInteger, PPPopoverSlideViewControllerDirection) {
     PPPopoverSlideViewControllerDirectionLeft,
     PPPopoverSlideViewControllerDirectionRight,
     PPPopoverSlideViewControllerDirectionTop,
     PPPopoverSlideViewControllerDirectionBottom
-};
-
-typedef NS_ENUM(NSInteger, PPPopoverSlideViewControllerStyle) {
-    PPPopoverSlideViewControllerStyleBlur,
-    PPPopoverSlideViewControllerStyleMask,
-    PPPopoverSlideViewControllerStyleClear,
 };
 
 @class PPPopoverSlideViewController;
@@ -38,9 +33,10 @@ typedef NS_ENUM(NSInteger, PPPopoverSlideViewControllerStyle) {
 
 @property (nonatomic, assign) PPPopoverSlideViewControllerDirection direction;
 
-@property (nonatomic, assign) PPPopoverSlideViewControllerStyle style;
+/** See PPMaskStyle for detail, default PPMaskStyleBlur */
+@property (nonatomic, assign) PPMaskStyle style;
 
-@property (nonatomic, assign) CGFloat menuViewWidth;
+@property (nonatomic, assign) CGFloat menuViewSize;
 
 @property (nonatomic, assign) BOOL panGestureEnabled;
 
@@ -51,5 +47,13 @@ typedef NS_ENUM(NSInteger, PPPopoverSlideViewControllerStyle) {
 - (void)presentMenuViewController;
 
 - (void)hideMenuViewController;
+
+@end
+
+#pragma mark - UIViewController (PPPopoverSlideViewController)
+
+@interface UIViewController (PPPopoverSlideViewController)
+
+- (PPPopoverSlideViewController* )popoverSlideViewController;
 
 @end
