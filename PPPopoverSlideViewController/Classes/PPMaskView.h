@@ -25,7 +25,6 @@ typedef NS_ENUM(NSInteger, PPMaskStyle) {
 - (void)maskViewDidDraged:(PPMaskView *)maskView offset:(CGPoint)offset;
 - (void)maskViewDidEndedDrag:(PPMaskView *)maskView offset:(CGPoint)offset velocity:(CGPoint)velocity;
 
-
 @end
 
 @interface PPMaskView : UIView

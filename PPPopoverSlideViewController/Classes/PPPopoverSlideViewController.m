@@ -108,10 +108,21 @@
 }
 
 - (void)setMenuViewController:(UIViewController *)menuViewController {
+    [_menuViewController removeFromParentViewController];
+    [_menuViewController.view removeFromSuperview];
+    
     _menuViewController = menuViewController;
     [_menuViewController.view removeGestureRecognizer:_panGestureRecognizer];
     _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureRecognizerAction:)];
     [_menuViewController.view addGestureRecognizer:_panGestureRecognizer];;
+}
+
+- (void)setContentViewController:(UIViewController *)contentViewController {
+    [_contentViewController removeFromParentViewController];
+    [_contentViewController.view removeFromSuperview];
+    
+    _contentViewController = contentViewController;
+    _maskView.underlyingView = contentViewController.view;
 }
 
 - (void)onPanGestureRecognizerAction:(UIPanGestureRecognizer* )gesture {

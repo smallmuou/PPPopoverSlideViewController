@@ -112,6 +112,11 @@
     _delegateFlags.maskViewDidEndedDrag = [self.delegate respondsToSelector:@selector(maskViewDidEndedDrag:offset:velocity:)]?1:0;
 }
 
+- (void)setUnderlyingView:(UIView *)underlyingView {
+    _underlyingView = underlyingView;
+    _snapshot = nil;
+}
+
 - (void)setMaskValue:(CGFloat)maskValue {
     _maskValue = maskValue;
     switch (_style) {
