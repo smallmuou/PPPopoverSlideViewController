@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, PPPopoverSlideViewControllerDirection) {
 
 - (void)presentMenuViewController;
 
-- (void)hideMenuViewController;
+- (void)hideMenuViewController:(void(^)())completion;
 
 @end
 

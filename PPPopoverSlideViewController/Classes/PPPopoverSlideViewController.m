@@ -168,12 +168,16 @@
     }];
 }
 
-- (void)hideMenuViewController {
+- (void)hideMenuViewController:(void(^)())completion {
     [UIView animateWithDuration:0.25f animations:^{
         CGRect frame = _menuViewController.view.frame;
         frame.origin.x = -self.menuViewSize;
         _maskView.maskValue = 0;
         _menuViewController.view.frame = frame;
+    } completion:^(BOOL finished) {
+        if (completion) {
+            completion();
+        }
     }];
 }
 
@@ -184,7 +188,7 @@
 
 #pragma mark - PPMaskViewDelegate
 - (void)maskViewDidTap:(PPMaskView* )maskView {
-    [self hideMenuViewController];
+    [self hideMenuViewController:nil];
 }
 
 - (void)maskViewDidBeganDrag:(PPMaskView *)maskView offset:(CGPoint)offset {
