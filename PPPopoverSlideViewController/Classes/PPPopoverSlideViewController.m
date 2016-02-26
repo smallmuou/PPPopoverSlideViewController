@@ -14,6 +14,7 @@
     NSInteger               _dragCount;
     CGPoint                 _lastPoint;
     UIPanGestureRecognizer* _panGestureRecognizer;
+    UIScreenEdgePanGestureRecognizer *_edgeGestureRecognizer;
 }
 
 @end
@@ -120,6 +121,11 @@
         [self addChildViewController:menuViewController];
         [menuViewController.view addGestureRecognizer:_panGestureRecognizer];
         [menuViewController didMoveToParentViewController:self];
+        
+        _edgeGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(onScreenEdgePanGestureRecognizerAction:)];
+        _edgeGestureRecognizer.edges = UIRectEdgeLeft;
+        
+        [((UINavigationController*)_contentViewController).topViewController.view addGestureRecognizer:_edgeGestureRecognizer];
     }
     _menuViewController = menuViewController;
 }
@@ -137,6 +143,10 @@
     _contentViewController = contentViewController;
 }
 
+- (void)onScreenEdgePanGestureRecognizerAction:(UIScreenEdgePanGestureRecognizer* )gesture {
+    [self onPanGestureRecognizerAction:gesture];
+}
+
 - (void)onPanGestureRecognizerAction:(UIPanGestureRecognizer* )gesture {
     CGPoint point = [gesture locationInView:_maskView];
     switch (gesture.state) {
@@ -147,10 +157,10 @@
             [self maskViewDidDraged:_maskView offset:CGPointMake(point.x-_lastPoint.x, point.y-_lastPoint.y)];
             break;
         case UIGestureRecognizerStateEnded:
+        default:
             [self maskViewDidEndedDrag:_maskView offset:CGPointMake(point.x-_lastPoint.x, point.y-_lastPoint.y) velocity:[gesture velocityInView:_maskView]];
             break;
-        default:
-            break;
+
     }
     
     _lastPoint = point;
@@ -193,6 +203,7 @@
 
 - (void)maskViewDidBeganDrag:(PPMaskView *)maskView offset:(CGPoint)offset {
     _dragCount = 0;
+    _maskView.underlyingView = _contentViewController.view;
     [self maskViewDidDraged:maskView offset:offset];
 }
 
